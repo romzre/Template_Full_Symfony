@@ -7,14 +7,16 @@
         "php": ">=7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "doctrine/doctrine-bundle": "^2.7",
+        "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/orm": "^2.13",
         "symfony/console": "5.4.*",
         "symfony/dotenv": "5.4.*",
         "symfony/flex": "^1.17|^2",
         "symfony/framework-bundle": "5.4.*",
         "symfony/runtime": "5.4.*",
+        "symfony/webpack-encore-bundle": "^1.16",
         "symfony/yaml": "5.4.*"
-    },
-    "require-dev": {
     },
     "config": {
         "allow-plugins": {
@@ -44,6 +46,15 @@
         "symfony/polyfill-php72": "*"
     },
     "scripts": {
+         "installAllPackages": [
+            "composer require symfony/orm-pack",
+            "composer require --dev symfony/maker-bundle",
+            "composer require symfony/webpack-encore-bundle",
+            "composer require --dev symfony/test-pack",
+            "composer req --dev symfony/panther",
+            "composer require --dev dbrekelmans/bdi",
+            "vendor/bin/bdi detect drivers"
+        ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
@@ -63,5 +74,14 @@
             "allow-contrib": false,
             "require": "5.4.*"
         }
+    },
+    "require-dev": {
+        "dbrekelmans/bdi": "^1.0",
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "5.4.*",
+        "symfony/css-selector": "5.4.*",
+        "symfony/maker-bundle": "^1.43",
+        "symfony/panther": "^1.1",
+        "symfony/phpunit-bridge": "^6.2"
     }
 }
